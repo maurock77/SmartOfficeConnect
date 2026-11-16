@@ -8,43 +8,50 @@ function iniciarReuniones(){
     const btnGuardar =
         document.getElementById("btnGuardar");
 
-   const btnVolver =
+    const btnVolver =
         document.getElementById("btnVolver");
 
+    if(btnGuardar){
+
+        btnGuardar.addEventListener(
+            "click",
+            guardarReunion
+        );
+
+    }
+
     if(btnVolver){
+
         btnVolver.addEventListener(
             "click",
             volverInicio
         );
+
     }
-    btnGuardar.addEventListener(
-        "click",
-        guardarReunion
+
+}
+
+function volverInicio(){
+
+    window.location.assign(
+        "index.html"
     );
 
-    btnVolver.addEventListener(
-        "click",
-        volverInicio
-    );
-
-    cargarReuniones();
 }
 
 /* función para guardar reuniones */
 function guardarReunion(){
 
     const titulo =
-        document
-        .getElementById("titulo")
-        .value
-        .trim();
+        document.getElementById("titulo");
 
     const fecha =
-        document
-        .getElementById("fecha")
-        .value;
+        document.getElementById("fecha");
 
-    if(titulo === "" || fecha === ""){
+    if(
+        titulo.value.trim() === "" ||
+        fecha.value === ""
+    ){
 
         alert(
             "Complete todos los campos"
@@ -53,16 +60,21 @@ function guardarReunion(){
         return;
     }
 
-    const reunion = {
-        titulo,
-        fecha
-    };
+    const item =
+        document.createElement("li");
 
-    guardarEnStorage(reunion);
+    item.innerHTML = `
+        <strong>${titulo.value}</strong>
+        <br>
+        ${fecha.value}
+    `;
 
-    mostrarReunion(reunion);
+    document
+        .getElementById("listaReuniones")
+        .appendChild(item);
 
-    limpiarFormulario();
+    titulo.value = "";
+    fecha.value = "";
 }
 
 /* muestra las reuniones agendadas */
@@ -133,10 +145,3 @@ function limpiarFormulario(){
 
 }
 
-function volverInicio(){
-
-    window.location.assign(
-        "index.html"
-    );
-
-}

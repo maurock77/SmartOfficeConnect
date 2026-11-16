@@ -51,49 +51,48 @@
 
     <body>
 
-    <div class="header">
-        <h1>Reuniones</h1>
-        <p>Programación de reuniones corporativas</p>
-    </div>
+    <section id="vistaReuniones">
 
-    <main>
+        <h2>Programación de Reuniones</h2>
 
-        <div class="formulario">
+        <input
+            type="text"
+            id="titulo"
+            placeholder="Título de la reunión">
 
-            <input
-                type="text"
-                id="titulo"
-                placeholder="Título de la reunión">
+       <label for="fecha">
+    Fecha y hora de la reunión
+</label>
 
-            <input
-                type="datetime-local"
-                id="fecha">
+<input
+    type="datetime-local"
+    id="fecha">
+
+<button id="btnConfirmarFecha">
+    Confirmar fecha
+</button>
+
+<p id="fechaSeleccionada"></p>
+
+        <div class="contenedor_btn">
 
             <button id="btnGuardar">
-                Guardar reunión
+                Guardar
+            </button>
+
+            <button id="btnVolver">
+                ← Volver
             </button>
 
         </div>
 
-        <div class="lista-reuniones">
+        <ul id="listaReuniones"></ul>
 
-            <h2>Próximas reuniones</h2>
-
-            <ul id="listaReuniones"></ul>
-
-        </div>
-
-        <button
-            id="btnVolver"
-            class="btn-volver">
-
-            ← Volver
-
-        </button>
+    </section>
 
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
     <script src="js/app.js"></script>
-    script src="js/reuniones.js"></script>
+    <script src="js/reuniones.js"></script>
   </body>
 </html>
