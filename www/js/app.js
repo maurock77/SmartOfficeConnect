@@ -10,7 +10,7 @@ function iniciarAplicacion() {
   });
 
   document.getElementById("btnCorreo").addEventListener("click", () => {
-    window.location.assign("pages/correo.html");
+    window.location.assign("correo.html");
   });
 
   document.getElementById("btnSensores").addEventListener("click", () => {
