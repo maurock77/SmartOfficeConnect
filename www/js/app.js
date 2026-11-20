@@ -14,7 +14,7 @@ function iniciarAplicacion() {
   });
 
   document.getElementById("btnSensores").addEventListener("click", () => {
-    window.location.assign("pages/ambiente.html");
+    window.location.assign("ambiente.html");
   });
 
 }
